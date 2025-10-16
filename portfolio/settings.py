@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,10 +21,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = 'django-insecure-i0+3#v618f=$&w_)ou_!y7#@_=rc(5uu2g1b-l&6t@7xht(@%d'
+SECRET_KEY = 'django-insecure-i0+3#v618f=$&w_)ou_!y7#@_=rc(5uu2g1b-l&6t@7xht(@%d'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com', '*']
 
@@ -118,7 +119,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
 
 # To serve files directly from their original locations (usually in STATICFILES_DIRS or 
 # app static subdirectories) without needing to be collected into STATIC_ROOT by the collectstatic command; set WHITENOISE_USE_FINDERS to True.

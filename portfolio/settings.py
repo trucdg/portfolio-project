@@ -20,12 +20,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-i0+3#v618f=$&w_)ou_!y7#@_=rc(5uu2g1b-l&6t@7xht(@%d'
+# SECRET_KEY = 'django-insecure-i0+3#v618f=$&w_)ou_!y7#@_=rc(5uu2g1b-l&6t@7xht(@%d'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com', '*']
 
 
 # Application definition
@@ -129,3 +129,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+import django_heroku
+django_heroku.settings(locals())
